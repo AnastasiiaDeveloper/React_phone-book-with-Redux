@@ -13,8 +13,8 @@ export default function (state = initialState, action) {
       const idGen = nextId();
       const newObjItem = {
         id: idGen + new Date().getMilliseconds(),
-        name: action.text,
-        num: action.num,
+        contactName: action.name,
+        telephoneNum: action.number,
       };
       const newItem = [newObjItem, ...state.contacts.items];
       localStorage.setItem("list", JSON.stringify(newItem));

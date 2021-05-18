@@ -6,11 +6,11 @@ import {
   } from "./actionType.js";
 
 
-export function addContact(text, num) {
+export function addContact(name, number) {
     return {
       type: ADD_CONTACT,
-      text,
-      num,
+      name,
+      number,
     };
   }
   export function removeContact(id) {
