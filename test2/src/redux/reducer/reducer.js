@@ -1,5 +1,5 @@
 import { ADD_CONTACT, REMOVE_CONTACT, FILTER } from "./../actions/actionType";
-import nextId from "react-id-generator";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   contacts: {
@@ -7,16 +7,16 @@ const initialState = {
     filter: "",
   },
 };
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_CONTACT:
-      const idGen = nextId();
-      const newObjItem = {
-        id: idGen + new Date().getMilliseconds(),
+      const newContactsObject = {
+        id: uuidv4(),
         contactName: action.name,
-        telephoneNum: action.number,
+        telephoneNumber: action.number,
       };
-      const newItem = [newObjItem, ...state.contacts.items];
+      const newItem = [newContactsObject, ...state.contacts.items];
       localStorage.setItem("list", JSON.stringify(newItem));
       return {
         contacts: {
@@ -26,19 +26,16 @@ export default function (state = initialState, action) {
       };
 
     case REMOVE_CONTACT:
-      console.log(action);
-      let remArr = state.contacts.items.filter(({ id }) => id !== action.id);
-      console.log(remArr);
-      localStorage.setItem("list", JSON.stringify(remArr));
+      let filteredArray = state.contacts.items.filter(({ id }) => id !== action.id);
+      localStorage.setItem("list", JSON.stringify(filteredArray));
       return {
         contacts: {
           ...state.contacts,
-          items: remArr,
+          items: filteredArray,
         },
       };
-    case FILTER:
-      console.log(action);
 
+    case FILTER:
       return {
         contacts: {
           ...state.contacts,

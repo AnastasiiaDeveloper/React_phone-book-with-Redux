@@ -19,8 +19,6 @@ const AddContact= () => {
       }
     }
 
-
-
   const actionForContactName = (event) => {
     setContactName(event.target.value);
   };
@@ -30,6 +28,8 @@ const AddContact= () => {
   const sendDataToRedux = () => {
     handler(contactName, telephoneNumber, contacts);
   };
+
+
   return (
     <div>
       <div className="form-group">
