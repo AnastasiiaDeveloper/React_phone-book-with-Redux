@@ -2,9 +2,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
 }
 .center {
-  width: 500px;
-  overflow: hidden;
+  width: 400px;
+
+  margin-top: -50px;
+  /* overflow: hidden; */
 }
 

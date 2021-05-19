@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddContact from "./add/add";
 import Filter from "./filter/filter";
-
 import { useSelector } from "react-redux";
 import "./main-block.css";
 

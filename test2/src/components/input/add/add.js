@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "./../../../redux/actions/actions";
+import "./add.css"
 
 const AddContact= () => {
   const [contactName, setContactName] = useState("");
@@ -8,7 +9,7 @@ const AddContact= () => {
   const [errorDoubleContact, setErrorDoubleContact] = useState(false);
   const [errorEmptyField, setErrorEmptyField] = useState(false);
   const [errorStyles] = useState({
-    turnOff: {
+    ifNo: {
       opacity: 0,
       position: "absolute",
       marginTop: "-60px",
@@ -20,7 +21,7 @@ const AddContact= () => {
       color: "white",
       padding: "4px",
     },
-    turnOn: {
+    ifYes: {
       opacity: 1,
       position: "absolute",
       marginTop: "-60px",
@@ -74,12 +75,14 @@ const AddContact= () => {
   return (
     <div>
       <div className="form-group">
-      <p style={errorDoubleContact ? errorStyles.turnOn : errorStyles.turnOff}>
+      <p style={errorDoubleContact ? errorStyles.ifYes : errorStyles.ifNo}>
           {" "}
-          {contactName} Такой пользователь уже зарегестрирован
+          {contactName}  пользователь уже добавлен
         </p>
-      <p style={errorEmptyField ? errorStyles.turnOn : errorStyles.turnOff}> Заполните пожалуйста все поля</p>
-        <label>Contact name</label>
+        
+      <p style={errorEmptyField ? errorStyles.ifYes : errorStyles.ifNo}> Заполните пожалуйста все поля</p>
+      
+        <label className="name">Contact name</label>
         <input
           type="text"
           className="form-control"
@@ -89,7 +92,7 @@ const AddContact= () => {
         />
       </div>
       <div className="form-group">
-        <label>Telephone number</label>
+        <label className="number">Telephone number</label>
         <input
           type="number"
           className="form-control"

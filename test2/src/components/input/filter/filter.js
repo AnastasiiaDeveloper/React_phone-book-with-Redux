@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { findContact } from "./../../../redux/actions/actions";
+import "./filter.css"
+
 
 const Filter = () => {
   const [filterName, setFilterName] = useState("");
@@ -20,7 +22,7 @@ const Filter = () => {
 
   return (
     <div className="form-group filtDiv">
-      <label>Find contacts by name</label>
+      <label className="filter">Find contacts by name</label>
       <input
         type="text"
         className="form-control"

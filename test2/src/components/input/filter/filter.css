@@ -1,5 +1,5 @@
 .mainAdd {
-    border: 1px solid rgb(131, 126, 126);
+    border: 1px solid black;
     border-radius: 10px;
     width: 100%;
     height: 260px;
@@ -13,7 +13,6 @@
     font-family: "Anton", sans-serif;
     color: rgb(0, 0, 112);
     font-size: 4em;
-    margin-bottom: -20px;
   }
   .filtDiv {
     border: 1px solid black;
@@ -24,5 +23,9 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
     -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
     -moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+  }
+  .filter{
+    font-size: 16px;
+    color:green;
   }
   

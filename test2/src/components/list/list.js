@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import { Container, ListGroup, Button } from "react-bootstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,36 +6,37 @@ import { removeContact } from "./../../redux/actions/actions";
 import "./list.css";
 
 const List = () => {
-  const [items, setItems] = useState([]);
+  const [contactItems, setContactItems] = useState([]);
+  const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.items);
   const filter = useSelector((state) => state.contacts.filter);
 
-  const dispatch = useDispatch();
- 
 
-  const removeItem = (id) => {
+ 
+  const removeItem = useCallback((id) => {
     dispatch(removeContact(id));
-  }
+  }, []);
 
   const deleteItem = (id) => {
     removeItem(id);
   };
 
   useEffect(() => {
-    setItems(contacts);
+    setContactItems(contacts);
   }, [contacts]);
 
-  const contactFilter = (arrayTodo) => {
+
+  const contactFilter = (contactList) => {
     if (filter === "") {
-      return arrayTodo;
+      return contactList;
     } else {
-      return arrayTodo.filter((item) => {
-        return item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+      return contactList.filter((item) => {
+        return item.contactName.toLowerCase().indexOf(filter.toLowerCase()) > -1;
       });
     }
   };
 
-  const listOfContacts = contactFilter(items).map(({ id, contactName, telephoneNumber }) => {
+  const listOfFilteredContacts = contactFilter(contactItems).map(({ id, contactName, telephoneNumber }) => {
     return (
       <CSSTransition key={id} timeout={500} classNames="item">
         <ListGroup.Item className="li">
@@ -53,13 +54,13 @@ const List = () => {
     );
   });
   
-  if (items.length === 0) {
+  if (contactItems.length === 0) {
     return <div style={{ marginTop: "20px" }}> Записей пока никаких нет</div>;
   }
   return (
     <Container style={{ marginTop: "2rem" }}>
       <ListGroup style={{ marginBottom: "1rem" }}>
-        <TransitionGroup className="todo-list">{listOfContacts}</TransitionGroup>
+        <TransitionGroup className="todo-list">{listOfFilteredContacts}</TransitionGroup>
       </ListGroup>
     </Container>
   );
