@@ -1,13 +1,12 @@
 import React, { useState, useEffect} from "react";
-import React, { useState, useEffect} from "react";
 import { Container, ListGroup, Button } from "react-bootstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useDispatch, useSelector } from "react-redux";
-import { removeContact } from "./../../redux/actions";
+import { removeContact } from "./../../redux/actions/actions";
 import "./list.css";
 
 const List = () => {
-  const [contactItems, setContactItems] = useState([]);
+  const [items, setItems] = useState([]);
   const contacts = useSelector((state) => state.contacts.items);
   const filter = useSelector((state) => state.contacts.filter);
 
@@ -23,20 +22,20 @@ const List = () => {
   };
 
   useEffect(() => {
-    setContactItems(contacts);
+    setItems(contacts);
   }, [contacts]);
 
-  const contactFilter = (contactsList) => {
+  const contactFilter = (arrayTodo) => {
     if (filter === "") {
-      return contactsList;
+      return arrayTodo;
     } else {
-      return contactsList.filter((contactItem) => {
-        return contactItem.name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+      return arrayTodo.filter((item) => {
+        return item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
       });
     }
   };
 
-  const listOfContacts = contactFilter(contactItems).map(({ id, contactName, telephoneNumber }) => {
+  const listOfContacts = contactFilter(items).map(({ id, contactName, telephoneNumber }) => {
     return (
       <CSSTransition key={id} timeout={500} classNames="item">
         <ListGroup.Item className="li">
@@ -54,7 +53,7 @@ const List = () => {
     );
   });
   
-  if (contactItems.length === 0) {
+  if (items.length === 0) {
     return <div style={{ marginTop: "20px" }}> Записей пока никаких нет</div>;
   }
   return (

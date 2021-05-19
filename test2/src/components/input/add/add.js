@@ -85,6 +85,7 @@ const AddContact= () => {
           className="form-control"
           onChange={actionForContactName}
           value={contactName}
+          aria-describedby="emailHelp"
         />
       </div>
       <div className="form-group">
@@ -93,7 +94,7 @@ const AddContact= () => {
           type="number"
           className="form-control"
           onChange={actionForTelephoneNumber}
-          value={telphoneNumber}
+          value={telephoneNumber}
         />
       </div>
       <button
