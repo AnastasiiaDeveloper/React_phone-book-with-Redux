@@ -1,0 +1,27 @@
+.mainAdd {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    height: 260px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+  }
+  .phone p {
+    font-family: "Anton", sans-serif;
+    color: rgb(0, 0, 112);
+    font-size: 4em;
+  }
+  .filtDiv {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 1);
+  }
+  

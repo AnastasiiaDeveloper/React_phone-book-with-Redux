@@ -1,0 +1,24 @@
+.remove-btn {
+    margin-right: 0.5rem;
+  }
+  
+  .item-enter {
+    opacity: 0.2;
+    margin-left: -200px;
+  }
+  .item-enter-active {
+    opacity: 1;
+    margin-left: 0;
+    transition: 3s;
+  }
+  .item-exit {
+    opacity: 1;
+    margin-left: -200px;
+    transition: 3s;
+  }
+  .item-exit-active {
+    opacity: 0;
+    margin-left: -200px;
+    transition: 3s;
+  }
+  

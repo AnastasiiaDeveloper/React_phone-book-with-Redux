@@ -1,0 +1,30 @@
+.remove-btn {
+    margin-right: 0.5rem;
+    width: 40px;
+    margin-left: 100px;
+  }
+  
+  .item-enter {
+    opacity: 0;
+    margin-left: -100px;
+    transition: 1s;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: 1s;
+    margin-left: 0px;
+  }
+  .item-exit {
+    opacity: 1;
+    margin-left: 0px;
+  }
+  .item-exit-active {
+    transition: 1s;
+    margin-left: -100px;
+  }
+  .li {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
