@@ -16,8 +16,8 @@ export default function (state = initialState, action) {
         contactName: action.name,
         telephoneNumber: action.number,
       };
-      const newItem = [newContactsObject, ...state.contacts.items];
-      localStorage.setItem("list", JSON.stringify(newItem));
+      const contactListWithNewItem = [newContactsObject, ...state.contacts.items];
+      localStorage.setItem("list", JSON.stringify(contactListWithNewItem));
       return {
         contacts: {
           ...state.contacts,
